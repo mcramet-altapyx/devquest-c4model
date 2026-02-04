@@ -1,0 +1,91 @@
+@startuml bibliotheque-context
+' Solution de l'exercice : Application de Bibliothèque
+' Diagramme de Contexte (C1)
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Application Bibliothèque - Diagramme de Contexte
+
+' =============================================================================
+' ACTEURS
+' =============================================================================
+
+Person(lecteur, "Lecteur", "Utilisateur qui emprunte et réserve des livres dans la bibliothèque")
+Person(bibliothecaire, "Bibliothécaire", "Personnel qui gère le catalogue, les emprunts et les retours")
+
+' =============================================================================
+' SYSTÈME PRINCIPAL
+' =============================================================================
+
+System(app_biblio, "Application Bibliothèque", "Système de gestion des emprunts, réservations et catalogue de la bibliothèque municipale")
+
+' =============================================================================
+' SYSTÈMES EXTERNES
+' =============================================================================
+
+System_Ext(service_email, "Service Email", "Service d'envoi d'emails pour notifications et rappels (ex: SendGrid)")
+System_Ext(systeme_paiement, "Système de Paiement", "Traitement des paiements d'amendes pour retards (ex: Stripe)")
+
+' =============================================================================
+' RELATIONS
+' =============================================================================
+
+' Relations Lecteur
+Rel(lecteur, app_biblio, "Recherche des livres, réserve et consulte ses emprunts", "HTTPS")
+
+' Relations Bibliothécaire
+Rel(bibliothecaire, app_biblio, "Gère le catalogue, enregistre les emprunts et retours", "HTTPS")
+
+' Relations avec systèmes externes
+Rel(app_biblio, service_email, "Envoie des notifications de réservation et rappels de retour", "HTTPS/SMTP")
+Rel(app_biblio, systeme_paiement, "Traite les paiements d'amendes", "HTTPS/JSON")
+
+' Notification vers le lecteur
+Rel(service_email, lecteur, "Reçoit les rappels et confirmations", "Email")
+
+@enduml
+
+' =============================================================================
+' NOTES SUR LA SOLUTION
+' =============================================================================
+'
+' CHOIX DE CONCEPTION:
+'
+' 1. ACTEURS
+'    - 2 acteurs principaux identifiés selon les rôles métier
+'    - Pas de surcharge avec des rôles intermédiaires
+'
+' 2. SYSTÈME PRINCIPAL
+'    - Un seul système : l'application de bibliothèque
+'    - Description concise mais complète
+'
+' 3. SYSTÈMES EXTERNES
+'    - Email : Essentiel pour les notifications
+'    - Paiement : Gestion des amendes
+'    - Note: On pourrait ajouter un système SMS en bonus
+'
+' 4. RELATIONS
+'    - Toutes les relations indiquent le protocole
+'    - Descriptions orientées "action métier"
+'    - Flux bidirectionnel email explicite (app → service → lecteur)
+'
+' 5. SIMPLIFICATIONS
+'    - Pas de détails sur l'authentification (hors scope Context)
+'    - Pas de détails sur la base de données (niveau Container)
+'    - Focus sur les interactions principales
+'
+' =============================================================================
+' ÉVOLUTIONS POSSIBLES (NIVEAU CONTAINER)
+' =============================================================================
+'
+' Au niveau Container (C2), on pourrait décomposer "Application Bibliothèque" en:
+'
+' - Frontend: Application Web (React/Vue)
+' - Backend: API REST (Node.js/Python/Java)
+' - Database: PostgreSQL (catalogue, emprunts, utilisateurs)
+' - Cache: Redis (recherches fréquentes dans le catalogue)
+' - Worker: Service asynchrone pour l'envoi d'emails programmés
+'
+' =============================================================================

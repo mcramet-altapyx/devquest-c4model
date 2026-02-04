@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Build outputs (optionnel si on génère les slides)
+dist/
+build/
+
+# PlantUML generated files (on commit les PNG pour GitHub Pages)
+# Si vous préférez les régénérer à chaque fois, décommentez:
+# images/*.png
+# images/*.svg
+
+# Environment variables
+.env
+.env.local

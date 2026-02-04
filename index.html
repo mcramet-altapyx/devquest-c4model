@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>C4 Model pour non-architectes - Devquest</title>
+
+    <meta name="description" content="Introduction à un mindset architecture via C4 Model">
+    <meta name="author" content="Matthieu Cramet">
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css" id="theme">
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/monokai.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide sections will be loaded from external markdown files -->
+
+            <section data-markdown="slides/00-intro.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/01-why-architecture.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/02-c4-model-intro.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/03-level1-context.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/04-level2-container.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/05-level3-component.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/06-level4-code.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/07-diagrams-as-code.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/08-hands-on-demo.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/09-tools-comparison.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/10-best-practices.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/11-action-plan.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+
+            <section data-markdown="slides/12-resources.md"
+                     data-separator="^\r?\n---\r?\n$"
+                     data-separator-vertical="^\r?\n--\r?\n$">
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/zoom/zoom.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'speaker',
+
+            // Navigation
+            controls: true,
+            progress: true,
+            center: true,
+
+            // Transitions
+            transition: 'slide',
+            transitionSpeed: 'default',
+
+            // Plugins
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealNotes,
+                RevealZoom
+            ],
+
+            // Markdown plugin config
+            markdown: {
+                smartypants: true
+            },
+
+            // Syntax highlighting
+            highlight: {
+                highlightOnLoad: true
+            }
+        });
+    </script>
+</body>
+</html>

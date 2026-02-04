@@ -1,0 +1,94 @@
+@startuml
+' Template C4 Model - Context Diagram
+' Copiez ce fichier et adaptez-le à votre projet
+
+' Import de la bibliothèque C4-PlantUML pour le niveau Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+' Active la légende automatique
+LAYOUT_WITH_LEGEND()
+
+' Titre du diagramme
+title Nom de votre système - Diagramme de Contexte
+
+' =============================================================================
+' ACTEURS (Personnes qui utilisent le système)
+' =============================================================================
+' Syntaxe: Person(identifiant, "Nom affiché", "Description de son rôle")
+
+Person(user, "Utilisateur", "Personne qui utilise le système principal")
+Person(admin, "Administrateur", "Personne qui gère et configure le système")
+
+' =============================================================================
+' SYSTÈMES (Votre application et systèmes externes)
+' =============================================================================
+' System() = Votre système (celui que vous documentez)
+' System_Ext() = Systèmes externes (que vous ne contrôlez pas)
+
+System(main_system, "Votre Système", "Description de ce que fait votre système principal")
+
+System_Ext(external_api, "API Externe", "Système tiers utilisé (ex: Stripe, Twilio, etc.)")
+System_Ext(email_service, "Service Email", "Service d'envoi d'emails (ex: SendGrid, Mailgun)")
+
+' =============================================================================
+' RELATIONS (Qui communique avec qui et comment)
+' =============================================================================
+' Syntaxe: Rel(de, vers, "Action / Description", "Protocole/Technologie")
+
+Rel(user, main_system, "Utilise pour accomplir X", "HTTPS")
+Rel(admin, main_system, "Administre et configure", "HTTPS")
+
+Rel(main_system, external_api, "Appelle pour obtenir Y", "HTTPS/JSON")
+Rel(main_system, email_service, "Envoie des notifications", "SMTP/API")
+
+' =============================================================================
+' NOTES ADDITIONNELLES (optionnel)
+' =============================================================================
+' Vous pouvez ajouter des notes pour clarifier certains points
+
+' Lay_R(user, main_system)
+' Lay_D(main_system, external_api)
+
+@enduml
+
+' =============================================================================
+' GUIDE D'UTILISATION
+' =============================================================================
+'
+' 1. IDENTIFIANTS
+'    - Utilisez snake_case ou camelCase
+'    - Évitez les espaces et caractères spéciaux
+'    - Soyez cohérent dans tout le projet
+'
+' 2. DESCRIPTIONS
+'    - Soyez concis mais clair
+'    - Focus sur le "pourquoi" pas le "comment"
+'    - 1-2 phrases maximum
+'
+' 3. PROTOCOLES
+'    - Indiquez toujours le protocole (HTTPS, gRPC, AMQP, etc.)
+'    - Ajoutez le format si pertinent (JSON, XML, Protobuf)
+'    - Exemple: "HTTPS/JSON", "gRPC/Protobuf"
+'
+' 4. RÈGLE DU 7±2
+'    - Maximum 5-9 éléments par diagramme
+'    - Si plus, créez plusieurs vues
+'
+' 5. GÉNÉRATION
+'    - Commande: plantuml template.puml
+'    - Ou utilisez l'extension de votre IDE
+'    - Ou le serveur en ligne: https://www.plantuml.com/plantuml/
+'
+' =============================================================================
+' NIVEAUX SUIVANTS
+' =============================================================================
+'
+' Container (C2): !include .../C4_Container.puml
+' - Remplacez System() par Container()
+' - Ajoutez ContainerDb() pour les bases de données
+'
+' Component (C3): !include .../C4_Component.puml
+' - Remplacez Container() par Component()
+' - Focus sur un seul container
+'
+' =============================================================================

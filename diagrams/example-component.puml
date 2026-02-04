@@ -1,0 +1,44 @@
+@startuml example-component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Diagramme de Component (C3) - API REST E-Commerce
+
+Container(web_app, "Application Web", "React", "Interface utilisateur")
+ContainerDb(database, "Base de Données", "PostgreSQL", "Stocke les données")
+
+Container_Boundary(api, "API REST") {
+    Component(auth_controller, "Auth Controller", "Express Router", "Gère l'authentification")
+    Component(product_controller, "Product Controller", "Express Router", "Endpoints produits")
+    Component(order_controller, "Order Controller", "Express Router", "Endpoints commandes")
+
+    Component(auth_service, "Auth Service", "TypeScript Class", "Logique métier authentification")
+    Component(product_service, "Product Service", "TypeScript Class", "Logique métier produits")
+    Component(order_service, "Order Service", "TypeScript Class", "Logique métier commandes")
+
+    Component(product_repo, "Product Repository", "TypeScript Class", "Accès données produits")
+    Component(order_repo, "Order Repository", "TypeScript Class", "Accès données commandes")
+    Component(user_repo, "User Repository", "TypeScript Class", "Accès données utilisateurs")
+}
+
+System_Ext(payment, "Système de Paiement", "Stripe")
+
+Rel(web_app, auth_controller, "POST /login, /register", "HTTPS/JSON")
+Rel(web_app, product_controller, "GET /products", "HTTPS/JSON")
+Rel(web_app, order_controller, "POST /orders", "HTTPS/JSON")
+
+Rel(auth_controller, auth_service, "Appelle")
+Rel(product_controller, product_service, "Appelle")
+Rel(order_controller, order_service, "Appelle")
+
+Rel(auth_service, user_repo, "Utilise")
+Rel(product_service, product_repo, "Utilise")
+Rel(order_service, order_repo, "Utilise")
+Rel(order_service, payment, "Traite le paiement", "HTTPS")
+
+Rel(product_repo, database, "Requête SQL")
+Rel(order_repo, database, "Requête SQL")
+Rel(user_repo, database, "Requête SQL")
+
+@enduml

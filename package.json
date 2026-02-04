@@ -1,0 +1,28 @@
+{
+  "name": "devquest-c4-model-talk",
+  "version": "1.0.0",
+  "description": "Slides pour la conférence C4 Model à Devquest 2026",
+  "author": "Matthieu Cramet",
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "generate-diagrams": "cd diagrams && ./generate.sh",
+    "test": "echo \"Opening presentation in browser...\" && open http://localhost:8000"
+  },
+  "keywords": [
+    "c4-model",
+    "architecture",
+    "plantuml",
+    "reveal.js",
+    "presentation",
+    "slides",
+    "devquest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/votre-username/devquest.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

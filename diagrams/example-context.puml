@@ -1,0 +1,26 @@
+@startuml example-context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Diagramme de Contexte (C1) - Système E-Commerce
+
+Person(customer, "Client", "Utilisateur qui achète des produits en ligne")
+Person(admin, "Administrateur", "Gère le catalogue et les commandes")
+
+System(ecommerce, "Système E-Commerce", "Permet aux clients de commander des produits et aux admins de gérer le catalogue")
+
+System_Ext(payment, "Système de Paiement", "Traite les paiements par carte bancaire")
+System_Ext(shipping, "Système de Livraison", "Gère l'expédition et le suivi des colis")
+System_Ext(email, "Service Email", "Envoie les notifications aux clients")
+
+Rel(customer, ecommerce, "Consulte le catalogue, passe des commandes", "HTTPS")
+Rel(admin, ecommerce, "Gère les produits et les commandes", "HTTPS")
+
+Rel(ecommerce, payment, "Demande l'autorisation de paiement", "HTTPS/JSON")
+Rel(ecommerce, shipping, "Crée les demandes de livraison", "HTTPS/JSON")
+Rel(ecommerce, email, "Envoie les confirmations de commande", "SMTP")
+
+Rel(email, customer, "Reçoit les notifications", "Email")
+
+@enduml

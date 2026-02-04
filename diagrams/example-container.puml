@@ -1,0 +1,33 @@
+@startuml example-container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Diagramme de Container (C2) - Système E-Commerce
+
+Person(customer, "Client", "Utilisateur qui achète des produits")
+Person(admin, "Administrateur", "Gère le catalogue")
+
+System_Boundary(c1, "Système E-Commerce") {
+    Container(web_app, "Application Web", "React, TypeScript", "Interface utilisateur pour les clients et admins")
+    Container(api, "API REST", "Node.js, Express", "Fournit les fonctionnalités e-commerce via API REST")
+    Container(database, "Base de Données", "PostgreSQL", "Stocke les produits, commandes, utilisateurs")
+    Container(cache, "Cache", "Redis", "Cache les données fréquemment consultées")
+}
+
+System_Ext(payment, "Système de Paiement", "Stripe")
+System_Ext(shipping, "Système de Livraison", "Colissimo API")
+System_Ext(email, "Service Email", "SendGrid")
+
+Rel(customer, web_app, "Consulte et commande", "HTTPS")
+Rel(admin, web_app, "Gère le catalogue", "HTTPS")
+
+Rel(web_app, api, "Appelle", "HTTPS/JSON")
+Rel(api, database, "Lit/Écrit", "SQL/TCP")
+Rel(api, cache, "Lit/Écrit", "Redis Protocol")
+
+Rel(api, payment, "Traite les paiements", "HTTPS/JSON")
+Rel(api, shipping, "Crée les livraisons", "HTTPS/JSON")
+Rel(api, email, "Envoie les emails", "HTTPS/JSON")
+
+@enduml

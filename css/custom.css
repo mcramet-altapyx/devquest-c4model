@@ -1,0 +1,300 @@
+/* Custom styles for C4 Model presentation */
+
+:root {
+    --primary-color: #2E86AB;
+    --secondary-color: #06A77D;
+    --accent-color: #F24236;
+    --text-color: #2B2D42;
+    --bg-color: #FFFFFF;
+    --code-bg: #F8F9FA;
+}
+
+/* General overrides */
+.reveal {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    color: var(--text-color);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: none;
+}
+
+.reveal h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.reveal h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.4em;
+}
+
+.reveal h3 {
+    font-size: 1.3em;
+    margin-bottom: 0.3em;
+}
+
+/* Links */
+.reveal a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.reveal a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Code blocks */
+.reveal pre {
+    width: 100%;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.reveal pre code {
+    background-color: #272822;
+    padding: 20px;
+    line-height: 1.4;
+    max-height: 500px;
+    overflow: auto;
+}
+
+/* Split screen layout for code + diagram */
+.split-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.split-left,
+.split-right {
+    flex: 1;
+}
+
+.split-left {
+    text-align: left;
+}
+
+.split-right {
+    text-align: center;
+}
+
+/* Diagrams */
+.reveal img {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+.diagram-large img {
+    max-height: 600px;
+}
+
+.diagram-medium img {
+    max-height: 450px;
+}
+
+.diagram-small img {
+    max-height: 300px;
+}
+
+/* Lists */
+.reveal ul,
+.reveal ol {
+    text-align: left;
+    margin-left: 1em;
+}
+
+.reveal li {
+    margin-bottom: 0.5em;
+}
+
+/* Emphasis */
+.reveal strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.reveal em {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Fragments (progressive reveal) */
+.reveal .fragment.highlight-green {
+    opacity: 1;
+    visibility: inherit;
+}
+
+.reveal .fragment.highlight-green.visible {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.reveal .fragment.highlight-red {
+    opacity: 1;
+    visibility: inherit;
+}
+
+.reveal .fragment.highlight-red.visible {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Tables */
+.reveal table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 0.8em;
+}
+
+.reveal table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 15px;
+    font-weight: 600;
+}
+
+.reveal table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+.reveal table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Comparison table with icons */
+.comparison-table .check {
+    color: var(--secondary-color);
+    font-size: 1.3em;
+}
+
+.comparison-table .cross {
+    color: var(--accent-color);
+    font-size: 1.3em;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+    background: var(--code-bg);
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    font-style: italic;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Speaker notes indicator */
+.reveal aside.notes {
+    display: none;
+}
+
+/* Progress bar */
+.reveal .progress {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+}
+
+/* Slide numbers */
+.reveal .slide-number {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+/* Custom classes for special content */
+.highlight-box {
+    background-color: #FFF8DC;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.warning-box {
+    background-color: #FFE4E1;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.action-box {
+    background-color: #E8F5E9;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+/* Title slide styling */
+.title-slide h1 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 0.3em;
+}
+
+.title-slide h2 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+/* Footer */
+.reveal .footer {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    font-size: 0.5em;
+    color: #888;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .reveal {
+        font-size: 24px;
+    }
+
+    .split-container {
+        flex-direction: column;
+    }
+
+    .reveal h1 {
+        font-size: 2em;
+    }
+
+    .reveal h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Print styling */
+@media print {
+    .reveal .slides section {
+        page-break-after: always;
+    }
+
+    .reveal img {
+        max-height: 80vh;
+    }
+}
