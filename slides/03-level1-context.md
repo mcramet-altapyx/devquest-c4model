@@ -20,7 +20,7 @@ Le diagramme de **Contexte** montre :
 
 ### Exemple : E-Commerce
 
-```plantuml
+```plantumlcode
 @startuml
 !includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
